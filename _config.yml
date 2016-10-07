@@ -1,0 +1,17 @@
+title: Staticman
+description: I bring user-generated content to static sites
+baseurl: ""
+url: "https://staticman.net"
+
+markdown: kramdown
+
+exclude:
+  - node_modules
+
+# Serving
+detach:  false
+port:    4400
+host:    0.0.0.0
+
+gems:
+  - jekyll-redirect-from

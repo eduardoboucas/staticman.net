@@ -1,0 +1,26 @@
+.heading {
+    font-family: $font-family-secondary;
+    margin-bottom: 0.6em;
+}
+
+.heading--room {
+	margin-top: 1.6em;
+}
+
+.heading--1 {
+    @include font-size(40);
+
+    text-transform: uppercase;
+}
+
+.heading--2 {
+    @include font-size(30);
+}
+
+.heading--3 {
+    @include font-size(23);
+}
+
+.heading--4 {
+    @include font-size(20);
+}
