@@ -36,7 +36,7 @@ Forms should `POST` to:
 
 All fields should be nested under a `fields` array. Optionally, a `options` array can be used to pass along additional information, such as the title of a post.
 
-You can specify a redirect URL in a `options[redirect]` field. After entries are submitted, users will be redirected to this URL automatically.
+You can specify a redirect URL in a `options[redirect]` field. When the form is submitted, users will be redirected to this URL automatically.
 
 The following markup shows how the form for a simple commenting system would look like:
 
