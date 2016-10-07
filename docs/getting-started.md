@@ -36,10 +36,13 @@ Forms should `POST` to:
 
 All fields should be nested under a `fields` array. Optionally, a `options` array can be used to pass along additional information, such as the title of a post.
 
+You can specify a redirect URL in a `options[redirect]` field. After entries are submitted, users will be redirected to this URL automatically.
+
 The following markup shows how the form for a simple commenting system would look like:
 
 {% highlight html %}{% raw %}
 <form method="POST" action="https://api.staticman.net/v1/entry/eduardoboucas/staticman/gh-pages">
+  <input name="options[redirect]" type="hidden" value="https://my-site.com">
   <!-- e.g. "2016-01-02-this-is-a-post" -->
   <input name="options[slug]" type="hidden" value="{{ page.slug }}">
   <label><input name="fields[name]" type="text">Name</label>
