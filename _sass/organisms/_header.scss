@@ -1,5 +1,10 @@
 $header-height: 50px;
 
+.header {
+    position: relative;
+    z-index: 2;
+}
+
 .header__container {
     color: black;
 

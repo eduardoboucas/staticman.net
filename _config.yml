@@ -7,6 +7,7 @@ markdown: kramdown
 
 exclude:
   - node_modules
+  - .sass-cache
 
 # Serving
 detach:  false

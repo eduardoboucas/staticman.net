@@ -42,11 +42,10 @@ The following markup shows how the form for a simple commenting system would loo
 <form method="POST" action="https://api.staticman.net/v1/entry/eduardoboucas/staticman/gh-pages">
   <!-- e.g. "2016-01-02-this-is-a-post" -->
   <input name="options[slug]" type="hidden" value="{{ page.slug }}">
-
-  <input name="fields[name]" type="text">
-  <input name="fields[email]" type="email">
-  <textarea name="fields[message]"></textarea>
-
+  <label><input name="fields[name]" type="text">Name</label>
+  <label><input name="fields[email]" type="email">E-mail</label>
+  <label><textarea name="fields[message]"></textarea>Message</label>
+  
   <button type="submit">Go!</button>
 </form>
 {% endraw %}{% endhighlight %}
