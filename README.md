@@ -1,4 +1,4 @@
-<img src="logo.png" width="300">
+<img src="https://raw.githubusercontent.com/eduardoboucas/staticman/master/logo.png" width="300">
 
 # Staticman
 
