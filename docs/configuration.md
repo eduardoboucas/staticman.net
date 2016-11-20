@@ -17,7 +17,7 @@ The values of some parameters need to be protected from the public eye, so they'
     </a>
 
     {% if parameter.encrypted %}
-      <p><strong>RSA encrypted field</strong></p>
+      <p><strong>🔐 RSA encrypted field</strong></p>
     {% endif %}
 
     <p>{{ parameter.doc | markdownify }}</p>
