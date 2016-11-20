@@ -18,15 +18,18 @@ $nav-width: 320px;
 .docs__content {
 	h2 {
 		@extend .heading;
-		@extend .heading--room;
 		@extend .heading--2;
+	}
+
+	a h2 {
+		text-decoration: underline;
 	}
 
 	img {
 		@extend .standalone-image;	
 	}
 
-	a {
+	p a {
 		@extend .cta;
 	}
 
