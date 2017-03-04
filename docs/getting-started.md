@@ -26,7 +26,7 @@ If all goes well, you should receive a message saying **OK!** and we're good to 
 
 I will look for a `staticman.yml` file in the root of the repository, where various configuration parameters will be defined.
 
-You can use the [sample config file](https://github.com/eduardoboucas/staticman/blob/master/staticman.sample.yml) as a starting point and check the [available configuration parameters](configuration) for more information.
+You can use the [sample config file](https://github.com/eduardoboucas/staticman/blob/master/staticman.sample.yml) as a starting point and check the [available configuration parameters](/docs/configuration) for more information.
 
 ## Step 3. Hook up your forms
 
