@@ -36,8 +36,8 @@ try {
   const apiConfig = require(path.resolve(argv.path, 'config')).schema
   const siteConfig = require(path.resolve(argv.path, 'siteConfig')).schema
 
-  const apiConfigData = JSON.stringify(extractParameters(apiConfig))
-  const siteConfigData = JSON.stringify(extractParameters(siteConfig))
+  const apiConfigData = JSON.stringify(extractParameters(apiConfig), null, 2)
+  const siteConfigData = JSON.stringify(extractParameters(siteConfig), null, 2)
 
   fs.writeFile(path.resolve(__dirname, '..', '_data', 'apiConfig.json'), apiConfigData, err => {
     if (err) throw err
