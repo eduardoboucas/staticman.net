@@ -3,8 +3,6 @@ layout: docs
 title: Getting started
 permalink: /docs/index.html
 weight: 0
-redirect_from:
-  - /get-started
 ---
 Welcome! These instructions show you how to integrate Staticman with your site.
 
