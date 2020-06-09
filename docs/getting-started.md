@@ -6,7 +6,7 @@ weight: 0
 ---
 Welcome! These instructions show you how to integrate Staticman with your site.
 
-These steps relate to the hosted version of the platform; if you wish to host it yourself on your infrastructure, check the [GitHub repository](https://github.com/eduardoboucas/staticman).
+These steps relate to the hosted version of the platform (**THAT DOES NOT EXIST ANY LONGER**); if you wish to host it yourself on your infrastructure, check the [GitHub repository](https://github.com/eduardoboucas/staticman) and especially [this issue](https://github.com/eduardoboucas/staticman/issues/343).
 
 ## Step 1. Add Staticman to your repository
 
