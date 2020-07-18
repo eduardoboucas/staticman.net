@@ -1,7 +1,6 @@
 ---
 layout: docs
 title: Getting started
-permalink: /docs/index.html
 weight: 0
 ---
 Welcome! These instructions show you how to integrate Staticman with your site.
