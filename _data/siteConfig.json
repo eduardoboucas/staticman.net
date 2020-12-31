@@ -17,22 +17,22 @@
     "_key": "akismet.enabled"
   },
   {
-    "doc": "Name of the field to be used as the entry's author in Akistmet",
+    "doc": "Name of the field to be used as the entry's author in Akismet",
     "default": "",
     "_key": "akismet.author"
   },
   {
-    "doc": "Name of the field to be used as the entry's author's email in Akistmet",
+    "doc": "Name of the field to be used as the entry's author's email in Akismet",
     "default": "",
     "_key": "akismet.authorEmail"
   },
   {
-    "doc": "Name of the field to be used as the entry's author's URL in Akistmet",
+    "doc": "Name of the field to be used as the entry's author's URL in Akismet",
     "default": "",
     "_key": "akismet.authorUrl"
   },
   {
-    "doc": "Name of the field to be used as the entry's body in Akistmet",
+    "doc": "Name of the field to be used as the entry's body in Akismet",
     "default": "",
     "_key": "akismet.content"
   },

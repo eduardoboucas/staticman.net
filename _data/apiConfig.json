@@ -44,7 +44,7 @@
     "_key": "email.fromName"
   },
   {
-    "doc": "The applicaton environment.",
+    "doc": "The application environment.",
     "format": [
       "production",
       "development",
