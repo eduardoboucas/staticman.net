@@ -2,7 +2,7 @@
 layout: docs
 title: Site configuration file
 permalink: /docs/configuration
-weight: 1
+weight: 2
 ---
 The site configuration file for Staticman should be in the root of the repository hosting the static website and named `staticman.yml` (in the now deprecated v1 this file was named `_config.yml`). The following parameters are accepted.
 

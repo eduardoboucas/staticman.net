@@ -7,7 +7,7 @@ Welcome! These instructions walk you through deploying your own instance of Stat
 
 ## Step 1. Git provider authentication
 
-Staticman currently supports two git providers, GitHub and GitLab. The `Staticman` service needs to authenticate with the git provider to commit files and handle pull requests. 
+Staticman currently supports two git providers, GitHub and GitLab. The Staticman service needs to authenticate with the git provider to commit files and handle pull requests. 
 
 ### **If using GitLab to host your site repo:**
 
@@ -33,7 +33,7 @@ Generate a private key and note it down along with your app ID.
 
 #### **Option 2. Personal access token on bot**
 
-Register a new GitHub account to run your `Staticman` bot and create a [personal access token](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token) for this new account.
+Register a new GitHub account to run your Staticman bot and create a [personal access token](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token) for this new account.
 
 Then, from your main GitHub account, [send your bot a collaboration invite](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository).
 
@@ -86,7 +86,7 @@ Start the server with `npm start`
 
 ## Step 2. Create a configuration file
 
-`Staticman` will look for a `staticman.yml` file in the root of the repository, where various configuration parameters will be defined.
+Staticman will look for a `staticman.yml` file in the root of the repository, where various configuration parameters will be defined.
 
 You can use the [sample config file](https://github.com/eduardoboucas/staticman/blob/master/staticman.sample.yml) as a starting point and check the [available configuration parameters](/docs/configuration) for more information.
 
@@ -119,7 +119,7 @@ The following markup shows how the form for a simple commenting system would loo
 
 ## Step 4. Approve entries (optional)
 
-If you enable content moderation (by setting `moderation: true` in the site config), `Staticman` will send a pull request whenever a new entry is submitted. Merge the pull request to approve it, or close to discard.
+If you enable content moderation (by setting `moderation: true` in the site config), Staticman will send a pull request whenever a new entry is submitted. Merge the pull request to approve it, or close to discard.
 
 ![Step 2](/assets/images/get-started/step2.png)
 

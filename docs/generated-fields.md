@@ -2,7 +2,7 @@
 layout: docs
 title: Generated Fields
 permalink: /docs/generated-fields
-weight: 2
+weight: 3
 ---
 {% assign parameter = site.data.siteConfig | where:"_key","generatedFields" %}
 {% include partials/doc.html parameter=parameter.first %}

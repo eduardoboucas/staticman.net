@@ -2,7 +2,7 @@
 layout: docs
 title: Placeholders
 permalink: /docs/placeholders
-weight: 3
+weight: 4
 ---
 
 The following placeholders can be used to insert dynamic data in the content files, as well as in config properties like `filename` and `path` to define the file and directory names, respectively.
