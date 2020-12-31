@@ -32,10 +32,16 @@
     "_key": "email.domain"
   },
   {
-    "doc": "Email address to send notifications from. Will be overridden by a `notifications.fromAddress` parameter in the site config, if one is set.",
+    "doc": "Email address to send notifications from.",
     "default": "noreply@staticman.net",
     "env": "EMAIL_FROM",
     "_key": "email.fromAddress"
+  },
+  {
+    "doc": "Name of sender for notification emails.",
+    "default": "Staticman",
+    "env": "EMAIL_FROM_NAME",
+    "_key": "email.fromName"
   },
   {
     "doc": "The applicaton environment.",
@@ -49,10 +55,52 @@
     "_key": "env"
   },
   {
+    "doc": "URI for the GitHub oauth provider.",
+    "default": "https://github.com/login/oauth/access_token'",
+    "env": "GITHUB_ACCESS_TOKEN_URI",
+    "_key": "githubAccessTokenUri"
+  },
+  {
+    "doc": "GitHub Application ID.",
+    "default": "",
+    "env": "GITHUB_APP_ID",
+    "_key": "githubAppId"
+  },
+  {
+    "doc": "Base URL for the GitHub API.",
+    "default": "https://api.github.com",
+    "env": "GITHUB_BASE_URL",
+    "_key": "githubBaseUrl"
+  },
+  {
+    "doc": "Private key for GitHub Application.",
+    "default": "",
+    "env": "GITHUB_PRIVATE_KEY",
+    "_key": "githubPrivateKey"
+  },
+  {
     "doc": "Access token to the GitHub account being used to push files with.",
     "default": null,
     "env": "GITHUB_TOKEN",
     "_key": "githubToken"
+  },
+  {
+    "doc": "URI for the GitLab oauth provider.",
+    "default": "https://gitlab.com/oauth/token",
+    "env": "GITLAB_ACCESS_TOKEN_URI",
+    "_key": "gitlabAccessTokenUri"
+  },
+  {
+    "doc": "Base URL for the GitLab API.",
+    "default": "https://gitlab.com",
+    "env": "GITLAB_BASE_URL",
+    "_key": "gitlabAccessTokenUri"
+  },
+  {
+    "doc": "Access token to the GitLab account used to push submitted content.",
+    "default": "",
+    "env": "GITLAB_TOKEN",
+    "_key": "gitlabToken"
   },
   {
     "doc": "The port to bind the application to.",
@@ -63,14 +111,14 @@
   {
     "doc": "RSA private key to encrypt sensitive configuration parameters with.",
     "docExample": "rsaPrivateKey: \"-----BEGIN RSA PRIVATE KEY-----\\nkey\\n-----END RSA PRIVATE KEY-----\"",
-    "default": null,
+    "default": "",
     "env": "RSA_PRIVATE_KEY",
     "_key": "rsaPrivateKey"
   },
   {
-    "doc": "Sentry DSN",
-    "default": null,
-    "env": "SENTRY_DSN",
-    "_key": "sentryDSN"
+    "doc": "Slack webhook URL to pipe log output to (NOT YET IMPLEMENTED)",
+    "default": "",
+    "env": "SLACK_WEBHOOK",
+    "_key": "logging.slackWebhook"
   }
 ]
