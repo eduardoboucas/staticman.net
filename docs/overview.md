@@ -18,7 +18,13 @@ Staticman is most frequently used for submitting comments. The basic flow is sho
 ![Simple Staticman flow diagram](http://www.plantuml.com/plantuml/png/TP1DQiD038NtFiKZ-rx0Yn98ImXTn3I1hlsZkeAnnXrf6dBxZkDnWXS1BupUq_VPsghLmUBWYit9QkCMNzGe6srGAwONlBmYPqCjE4ZQa3RdoxX4TJoTqNen4eF6Pc1LzbBSApVEdWrLy7_SKRWHUhOI-_SpBhCM3rE2VNDVfCQq-b0zhIvwNKidHVwyGBKHnkWS0lr6KhlZ4x1S9RdTuVYHHZfwKPhR6JdP0ZVHV41wTeVT6mOAFIcgpnLtpZeQdR_cexAqBdOiFUo787Hnr_bgbfJBZnHRaYuExXy0)
 
 
-Staticman is highly configurable and supports many advanced use cases including spam detection, email notifications, and authentication. A single Staticman instance can service multiple users and sites. Staticman also supports multiple configurations per site. This allows for different submission types to be treated differently (i.e. Staticman can handle comments, and forum posts differently).
+Staticman is highly configurable and supports many advanced use cases including
+
+- spam detection
+- email notifications
+- authentication
+
+Staticman allows for a single instance to be securely used by multiple users so you can share your Staticman instance with others provided you have sufficient resources. Staticman also supports multiple configurations per site (e.x. forum posts and comments can be handled differently).
 
 ## How do I host a Staticman instance?
 
