@@ -12,3 +12,4 @@ Staticman supports integration with [Mailgun](https://www.mailgun.com/) for send
 
 1. Create a [Mailgun account](https://www.mailgun.com/) and follow the steps to set up the account with your domain. Note the domain you use as well as your `Private API key`
 1. Use the [Staticman encrypt endpoint](/docs/encryption) and add both the domain and private api key to the [site config](/docs/configuration#notifications.enabled) and enable notifications
+1. Set up a [webhook](/docs/webhook) so Staticman knows when to trigger a notification
