@@ -32,7 +32,9 @@ This is the recommended way to authenticate with GitHub. This method will give t
   - Webhook URL: `"{STATICMAN_BASE_URL}/v1/webhook"` - e.x. `"https://mystaticmaninstance.herokuapp.com/v1/webhook"`
   - Contents: `Read & Write` - Necessary to read the Staticman site config
   - Pull Requests: `Read & Write` - Necessary to merge pull requests
+  - Subscribe to `Pull request` events
 1. Generate a private key for the app and note it down along with your app ID.
+1. Install the app on your GitHub account. You can limit its access to only the repo from which you host your static site
 
 <br>
 
