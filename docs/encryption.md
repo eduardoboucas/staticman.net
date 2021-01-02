@@ -4,12 +4,12 @@ title: Encryption
 permalink: /docs/encryption
 weight: 6
 ---
-With config files in public repositories being accessible by anyone, it's important to protect any sensitive information (such as keys and passwords) by using encryption. Staticman provides an endpoint that people can use to encrypt any given text, and the result it provides is an encrypted string that is safe to use in a public config.
+With site config files in public repositories being accessible by anyone, it's important to protect any sensitive information (such as keys and passwords) by using encryption. Staticman provides an endpoint that people can use to encrypt any given text, and the result it provides is an encrypted string that is safe to use in a public config.
 
 Imagine that you want to store a reCaptcha secret of `1q2w3e4r`. Hit the following endpoint with a GET request:
 
 ```
-https://api.staticman.net/v2/encrypt/1q2w3e4r
+https://api.staticman.net/v3/encrypt/1q2w3e4r
 ```
 
 Then add the result to the config file.
