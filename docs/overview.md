@@ -20,8 +20,8 @@ Staticman is most frequently used for submitting comments. The basic flow is sho
 
 Staticman is highly configurable and supports many advanced use cases including
 
-- spam detection
-- email notifications
+- [spam detection](/docs/spam)
+- [notifications](/docs/notifications)
 - authentication
 
 Staticman allows for a single instance to be securely used by multiple users so you can share your Staticman instance with others provided you have sufficient resources. Staticman also supports multiple configurations per site (e.x. forum posts and comments can be handled differently).
