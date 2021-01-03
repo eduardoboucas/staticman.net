@@ -27,7 +27,7 @@ In order to use Staticman, the repository for your static site must be hosted on
 
 This is the recommended way to authenticate with GitHub. This method will give the most control over what Staticman can and can't access.
 
-1. [Create a new GitHub application](https://docs.github.com/en/free-pro-team@latest/developers/apps/creating-a-github-app). Ensure you use the following:
+1. <a href="https://docs.github.com/en/free-pro-team@latest/developers/apps/creating-a-github-app" class="cta">Create a new GitHub application</a>. Ensure you use the following:
   - Homepage: `"https://staticman.net/"`
   - Webhook URL: `"{STATICMAN_BASE_URL}/v1/webhook"` - e.x. `"https://mystaticmaninstance.herokuapp.com/v1/webhook"`
   - Contents: `Read & Write` - Necessary to read the Staticman site config
@@ -38,10 +38,10 @@ This is the recommended way to authenticate with GitHub. This method will give t
 
 <br>
 
-#### **Option 2. Personal access token on bot**
+#### **Option 2. Authenticate to GitHub using a personal access token on a bot**
 
-1. Register a new GitHub account to run your Staticman bot and create a [personal access token](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token) for this new account.
-1. From your main GitHub account, [send your bot a collaboration invite](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository).
+1. Register a new GitHub account to run your Staticman bot and create a <a href="https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token" class="cta">personal access token</a> for this new account.
+1. From your main GitHub account, <a href="https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository" class="cta">send your bot a collaboration invite</a>.
 1. Return to this step once your Staticman instance is running and send a GET request to
   `{STATICMAN_BASE_URL}/v3/connect/{GIT_PROVIDER_USERNAME}/{REPO}`
   <br>For example:<br>
@@ -50,7 +50,7 @@ This is the recommended way to authenticate with GitHub. This method will give t
 
 <br>
 
-#### **Option 3. Personal access token on main account**
+#### **Option 3. Authenticate to GitHub using a personal access token on your main account**
 
 This option is not recommended as it gives Staticman direct and complete access to your primary GitHub account. Simply, create a personal access token on your primary account.
 
@@ -58,16 +58,20 @@ This option is not recommended as it gives Staticman direct and complete access 
 
 Read through the [Staticman API config values](https://staticman.net/docs/api) and note the config values you wish to use. At a minimum, you must include a way for Staticman to auth with a git provider, as well as an RSA private key. To generate the RSA private key you can use 
 
-`openssl genrsa`
+{% highlight bash %}{% raw %}
+openssl genrsa
+{% endraw %}{% endhighlight %}
 
 If you need the newline literals (for example when using JSON configs since multiline strings are not permitted) you can use
 
-`openssl genrsa | sed '$!s/$/\\n/' | tr -d '\n'`
+{% highlight bash %}{% raw %}
+openssl genrsa | sed '$!s/$/\\n/' | tr -d '\n'
+{% endraw %}{% endhighlight %}
 
 ### **Option 1. Deploy to Heroku**
 
-1. Follow [this link](https://heroku.com/deploy?template=https://github.com/eduardoboucas/staticman/tree/master) to deploy the latest stable Staticman code to Heroku.
-1. You can enter your Staticman API config values as [Heroku config variables](https://devcenter.heroku.com/articles/config-vars).
+1. Follow <a href="https://heroku.com/deploy?template=https://github.com/eduardoboucas/staticman/tree/master" class="cta">this link</a> to deploy the latest stable Staticman code to Heroku.
+1. You can enter your Staticman API config values as <a href="https://devcenter.heroku.com/articles/config-vars" class="cta">Heroku config variables</a>.
 1. (Optional) Create a fork of Staticman and set up a Heroku pipeline to deploy from the fork. This will help you to keep your instance up to date with the latest changes.
 
 <br>
@@ -76,7 +80,7 @@ If you need the newline literals (for example when using JSON configs since mult
 
 If you prefer to use Docker, check out the [Docker instructions](https://github.com/eduardoboucas/staticman/blob/master/docs/docker.md). Otherwise continue below
 
-1. Clone [the Staticman repo](https://github.com/eduardoboucas/staticman.git) and ensure `node` and `npm` are installed.
+1. Clone <a href="https://github.com/eduardoboucas/staticman.git" class="cta">the Staticman repo</a> and ensure `node` and `npm` are installed.
 1. Install the dependencies
   <br>
   `npm install`
