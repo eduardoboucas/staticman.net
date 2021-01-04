@@ -72,7 +72,7 @@ openssl genrsa | sed '$!s/$/\\n/' | tr -d '\n'
 
 1. Follow <a href="https://heroku.com/deploy?template=https://github.com/eduardoboucas/staticman/tree/master" class="cta">this link</a> to deploy the latest stable Staticman code to Heroku.
 1. You can enter your Staticman API config values as <a href="https://devcenter.heroku.com/articles/config-vars" class="cta">Heroku config variables</a>.
-1. (Optional) Create a fork of Staticman and set up a Heroku pipeline to deploy from the fork. This will help you to keep your instance up to date with the latest changes.
+1. (Optional) Create a fork of Staticman and set up a Heroku pipeline to deploy from the fork. This will help you to keep your instance up to date with the latest Staticman improvements and bug fixes.
 
 <br>
 

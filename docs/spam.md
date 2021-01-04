@@ -14,27 +14,23 @@ Of course, moderation won't stop spam from being submitted. If you find yourself
 
 ## reCAPTCHA
 
-Another effective method of combating spam is to use reCAPTCHA.
+Another effective method of combating spam is to use reCAPTCHA. If you enable Akismet, Google will collect some telemetry.
 
-1. [Sign up for reCaptcha](https://www.google.com/recaptcha/admin/create) and note your `Site key` and `Secret`
-1. Use the [Staticman encryption endpoint](/docs/encrypt) to encrypt the secret and add the [reCAPTCHA options to your site config](http://0.0.0.0:4400/docs/configuration#reCaptcha.enabled)
+1. <a href="https://www.google.com/recaptcha/admin/create" class="cta">Sign up for reCaptcha v2</a> and note your `Site key` and `Secret key`
+1. Use the <a href="/docs/encrypt" class="cta">Staticman encryption endpoint</a> to encrypt the secret and add the <a href="/docs/configuration#reCaptcha.enabled" class="cta">reCAPTCHA options to your site config</a>
 1. Add the reCAPTCHA credentials to your form
   ``` html
   <input type="hidden" name="options[reCaptcha][siteKey]" value="{SITE-KEY}">
   <input type="hidden" name="options[reCaptcha][secret]" value="{ENCRYPTED-SECRET}">
   ```
-1. Add the reCAPTCHA script and DOM element to your static site
-  {% highlight html %}{% raw %}
-  <div class="g-recaptcha" data-sitekey="YOUR-SITE-KEY"></div>
-  <script src='https://www.google.com/recaptcha/api.js'></script>
-  {% endraw %}{% endhighlight %}
+1. Follow the reCAPTCHA documentation to add either a <a href="https://developers.google.com/recaptcha/docs/display#auto_render" class="cta">checkbox</a> or <a href="https://developers.google.com/recaptcha/docs/invisible#auto_render" class="cta">invisible challenge</a> to your form
 
 ## Akismet
 
 Another option for dealing with spam is to use the Akismet API. Akismet is a spam detection service offered by Akismet. If you enable Akismet, data from your form submissions will be forwarded to Akismet to determine if it's spam.
 
-1. Sign up for an [Akismet account](https://akismet.com/). Note your Akismet API key and give Akismet your static site's URL
-1. Add the Akismet API key and URL to the [API config](/docs/api)
+1. Sign up for an <a href="https://akismet.com/" class="cta">Akismet account</a>. Note your Akismet API key and give Akismet your static site's URL
+1. Add the Akismet API key and URL to the <a href="/docs/api" class="cta">API config</a>
 
 <br>
 
