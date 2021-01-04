@@ -27,7 +27,7 @@ Another effective method of combating spam is to use reCAPTCHA. If you enable Ak
 
 ## Akismet
 
-Another option for dealing with spam is to use the Akismet API. Akismet is a spam detection service offered by Akismet. If you enable Akismet, data from your form submissions will be forwarded to Akismet to determine if it's spam.
+Another option for dealing with spam is to use the Akismet API. Akismet is a spam detection service offered by WordPress. If you enable Akismet, data from your form submissions will be forwarded to Akismet to determine if it's spam.
 
 1. Sign up for an <a href="https://akismet.com/" class="cta">Akismet account</a>. Note your Akismet API key and give Akismet your static site's URL
 1. Add the Akismet API key and URL to the <a href="/docs/api" class="cta">API config</a>
