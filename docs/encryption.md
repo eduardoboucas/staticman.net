@@ -9,7 +9,7 @@ With site config files in public repositories being accessible by anyone, it's i
 Imagine that you want to store a reCaptcha secret of `1q2w3e4r`. Hit the following endpoint with a GET request:
 
 ```
-https://api.staticman.net/v3/encrypt/1q2w3e4r
+https://{STATICMAN_BASE_URL}/v3/encrypt/1q2w3e4r
 ```
 
 Then add the result to the config file.
