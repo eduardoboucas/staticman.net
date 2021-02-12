@@ -6,27 +6,33 @@
     "_key": "allowedFields"
   },
   {
+    "doc": "When allowedOrigins is defined, only requests sent from one of the listed domains will be accepted.",
+    "docExample": "allowedOrigins: [\"localhost\", \"eduardoboucas.com\"]",
+    "default": [],
+    "_key": "allowedOrigins"
+  },
+  {
     "doc": "Whether to use Akismet to check entries for spam. This requires an Akismet account to be configured in the Staticman API instance being used.",
     "default": false,
     "_key": "akismet.enabled"
   },
   {
-    "doc": "Name of the field to be used as the entry's author in Akistmet",
+    "doc": "Name of the field to be used as the entry's author in Akismet",
     "default": "",
     "_key": "akismet.author"
   },
   {
-    "doc": "Name of the field to be used as the entry's author's email in Akistmet",
+    "doc": "Name of the field to be used as the entry's author's email in Akismet",
     "default": "",
     "_key": "akismet.authorEmail"
   },
   {
-    "doc": "Name of the field to be used as the entry's author's URL in Akistmet",
+    "doc": "Name of the field to be used as the entry's author's URL in Akismet",
     "default": "",
     "_key": "akismet.authorUrl"
   },
   {
-    "doc": "Name of the field to be used as the entry's body in Akistmet",
+    "doc": "Name of the field to be used as the entry's body in Akismet",
     "default": "",
     "_key": "akismet.content"
   },
@@ -34,6 +40,11 @@
     "doc": "Type of entry to be sent to Akismet",
     "default": "comment",
     "_key": "akismet.type"
+  },
+  {
+    "doc": "Whether (oauth) authentication is required for an entry to be accepted",
+    "default": "false",
+    "_key": "auth"
   },
   {
     "doc": "Name of the branch being used within the GitHub repository.",
@@ -73,23 +84,44 @@
     "_key": "generatedFields"
   },
   {
-    "doc": "The client ID to the GitHub Application used for GitHub authentication.",
+    "doc": "The client ID to the GitHub Application used for GitHub oauth authentication.",
     "default": null,
-    "env": "GITHUB_AUTH_CLIENT_ID",
     "encrypted": true,
     "_key": "githubAuth.clientId"
   },
   {
-    "doc": "The client secret to the GitHub Application used for GitHub authentication.",
+    "doc": "The client secret to the GitHub Application used for GitHub oauth authentication.",
     "default": null,
-    "env": "GITHUB_AUTH_CLIENT_SECRET",
     "encrypted": true,
     "_key": "githubAuth.clientSecret"
   },
   {
-    "doc": "Whether GitHub Auth is required for an entry to be accepted.",
+    "doc": "The URL to redirect to after oauth authentication with GitHub.",
+    "default": "",
+    "_key": "githubAuth.redirectUri"
+  },
+  {
+    "doc": "(DEPRECATED: Use `auth.required` instead.) Whether authentication is required for an entry to be accepted.",
     "default": false,
     "_key": "githubAuth.required"
+  },
+
+  {
+    "doc": "The client ID to the GitLab Application used for GitLab oauth authentication.",
+    "default": null,
+    "encrypted": true,
+    "_key": "gitlabAuth.clientId"
+  },
+  {
+    "doc": "The client secret to the GitLab Application used for GitLab oauth authentication.",
+    "default": null,
+    "encrypted": true,
+    "_key": "gitlabAuth.clientSecret"
+  },
+  {
+    "doc": "The URL to redirect to after oauth authentication with GitHub.",
+    "default": "",
+    "_key": "gitlabAuth.redirectUri"
   },
   {
     "doc": "When set to `true`, a pull request with the data files will be created to allow site administrators to approve or reject an entry. Otherwise, entries will be pushed to `branch` immediately.",

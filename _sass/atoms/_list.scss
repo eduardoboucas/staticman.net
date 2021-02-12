@@ -1,25 +1,4 @@
-.list {
-
-}
-
-.list--ordered {
-    counter-reset: item;
-    list-style-type: none;
-
-    .list__item {
-        display: block;
-
-        &:before {
-            content: counter(item) "  "; 
-            counter-increment: item;
-            margin-right: 5px;           
-        }
-    }
-}
-
 .list--unordered {
-    list-style-type: none;
-
     .list__item {
         &:before {
             content: '•';

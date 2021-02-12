@@ -3,33 +3,111 @@ layout: docs
 title: Getting started
 weight: 0
 ---
-Welcome! These instructions show you how to integrate Staticman with your site.
+Welcome! These instructions walk you through deploying your own instance of Staticman and connecting it to your static site.
 
-These steps relate to the hosted version of the platform; if you wish to host it yourself on your infrastructure, check the [GitHub repository](https://github.com/eduardoboucas/staticman).
+## Step 1. Git provider authentication
 
-## Step 1. Add Staticman to your repository
+Staticman currently supports the following git providers:
 
-I will need push access to the repositories you want me to commit the files to. In GitHub, go to your repository **Settings** page, navigate to the **Collaborators** tab and add the username **staticmanapp**.
+- GitHub
+- GitLab
 
-![Step 1](/assets/images/get-started/step1.png)
+In order to use Staticman, the repository for your static site must be hosted on one of these providers. The Staticman service needs to authenticate with the git provider to commit files and handle pull requests. This step will walk you through obtaining the necessary credentials.
 
-At this point, the invitation will be pending. In order for me to accept it, you need to open:
+### **If using GitLab to host the static site repo:**
 
-`https://api.staticman.net/v2/connect/{your GitHub username}/{your repository name}`
+[Create a personal access token](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#creating-a-personal-access-token) with the following scopes
 
-If all goes well, you should receive a message saying **OK!** and we're good to go.
+- `read_repository`: Necessary to read the Staticman site config
+- `write_repository`: Necessary to merge pull requests
 
-## Step 2. Create a configuration file
+### **If using GitHub to host the static site repo:**
 
-I will look for a `staticman.yml` file in the root of the repository, where various configuration parameters will be defined.
+#### **Option 1. Authenticate as a GitHub application**
 
-You can use the [sample config file](https://github.com/eduardoboucas/staticman/blob/master/staticman.sample.yml) as a starting point and check the [available configuration parameters](/docs/configuration) for more information.
+This is the recommended way to authenticate with GitHub. This method will give the most control over what Staticman can and can't access.
 
-## Step 3. Hook up your forms
+1. <a href="https://docs.github.com/en/free-pro-team@latest/developers/apps/creating-a-github-app" class="cta">Create a new GitHub application</a>. Ensure you use the following:
+  - Homepage: `"https://staticman.net/"`
+  - Webhook URL: `"{STATICMAN_BASE_URL}/v1/webhook"` - e.x. `"https://mystaticmaninstance.herokuapp.com/v1/webhook"`
+  - Contents: `Read & Write` - Necessary to read the Staticman site config
+  - Pull Requests: `Read & Write` - Necessary to merge pull requests
+  - Subscribe to `Pull request` events
+1. Generate a private key for the app and note it down along with your app ID.
+1. Install the app on your GitHub account. You can limit its access to only the repo from which you host your static site
 
-Forms should `POST` to:
+<br>
 
-`https://api.staticman.net/v2/entry/{GITHUB USERNAME}/{GITHUB REPOSITORY}/{BRANCH}/{PROPERTY (optional)}`
+#### **Option 2. Authenticate to GitHub using a personal access token on a bot**
+
+1. Register a new GitHub account to run your Staticman bot and create a <a href="https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token" class="cta">personal access token</a> for this new account.
+1. From your main GitHub account, <a href="https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository" class="cta">send your bot a collaboration invite</a>.
+1. Return to this step once your Staticman instance is running and send a GET request to
+  `{STATICMAN_BASE_URL}/v3/connect/{GIT_PROVIDER_USERNAME}/{REPO}`
+  <br>For example:<br>
+  `https://staticmaninstance.herokuapp.com/v3/connect/eduardoboucas/staticman.net`
+1. You should get an `OK!` response and the bot should have accepted the collaboration invitation.
+
+<br>
+
+#### **Option 3. Authenticate to GitHub using a personal access token on your main account**
+
+This option is not recommended as it gives Staticman direct and complete access to your primary GitHub account. Simply, create a personal access token on your primary account.
+
+## Step 2. Deploy Staticman
+
+Read through the [Staticman API config values](https://staticman.net/docs/api) and note the config values you wish to use. At a minimum, you must include a way for Staticman to auth with a git provider, as well as an RSA private key. To generate the RSA private key you can use 
+
+{% highlight bash %}{% raw %}
+openssl genrsa
+{% endraw %}{% endhighlight %}
+
+If you need the newline literals (for example when using JSON configs since multiline strings are not permitted) you can use
+
+{% highlight bash %}{% raw %}
+openssl genrsa | sed '$!s/$/\\n/' | tr -d '\n'
+{% endraw %}{% endhighlight %}
+
+### **Option 1. Deploy to Heroku**
+
+1. Follow <a href="https://heroku.com/deploy?template=https://github.com/eduardoboucas/staticman/tree/master" class="cta">this link</a> to deploy the latest stable Staticman code to Heroku.
+1. You can enter your Staticman API config values as <a href="https://devcenter.heroku.com/articles/config-vars" class="cta">Heroku config variables</a>.
+1. (Optional) Create a fork of Staticman and set up a Heroku pipeline to deploy from the fork. This will help you to keep your instance up to date with the latest Staticman improvements and bug fixes.
+
+<br>
+
+### **Option 2. Deploy to your own infrastructure**
+
+If you prefer to use Docker, check out the [Docker instructions](https://github.com/eduardoboucas/staticman/blob/master/docs/docker.md). Otherwise continue below
+
+1. Clone <a href="https://github.com/eduardoboucas/staticman.git" class="cta">the Staticman repo</a> and ensure `node` and `npm` are installed.
+1. Install the dependencies
+  <br>
+  `npm install`
+1. Create a new config from the sample
+  <br>
+  `cp config.sample.json config.production.json`
+1. Edit the new production config with any values you want, and then start the Staticman server
+  <br>
+  `npm start`
+
+<br>
+
+## Step 3. Create a site configuration file
+
+Staticman will look for a `staticman.yml` file in the root of the repository, where various configuration parameters will be defined. These configuration values are specific to the site. This means one Staticman instance can be used with many websites and users.
+
+You can use the [sample site config file](https://github.com/eduardoboucas/staticman/blob/master/staticman.sample.yml) as a starting point and check the [available site configuration parameters](/docs/configuration) for more information.
+
+## Step 4. Hook up your forms
+
+Forms on your static site should `POST` to:
+
+`{STATICMAN_BASE_URL}/v3/entry/{GIT_PROVIDER}/{GIT_PROVIDER_USERNAME}/{REPO}/{BRANCH}/{property (optional)}`
+
+e.x. `https://staticmaninstance.herokuapp.com/v3/entry/github/eduardoboucas/staticman/gh-pages/comments`
+
+You can view full API docs at `{STATICMAN_BASE_URL}/api-docs` including example values.
 
 All fields should be nested under a `fields` array. Optionally, a `options` array can be used to pass along additional information, such as the title of a post.
 
@@ -38,7 +116,7 @@ You can specify a redirect URL in a `options[redirect]` field. When the form is 
 The following markup shows how the form for a simple commenting system would look like:
 
 {% highlight html %}{% raw %}
-<form method="POST" action="https://api.staticman.net/v2/entry/eduardoboucas/staticman/gh-pages/comments">
+<form method="POST" action="https://api.staticman.net/v3/entry/github/eduardoboucas/staticman/gh-pages/comments">
   <input name="options[redirect]" type="hidden" value="https://my-site.com">
   <!-- e.g. "2016-01-02-this-is-a-post" -->
   <input name="options[slug]" type="hidden" value="{{ page.slug }}">
@@ -50,10 +128,12 @@ The following markup shows how the form for a simple commenting system would loo
 </form>
 {% endraw %}{% endhighlight %}
 
-## Step 4. Approve entries (optional)
+## Step 5. Approve entries (optional)
 
-If you enable content moderation (by setting `moderation: true` in the config), I will send a pull request whenever a new entry is submitted. Merge the pull request to approve it, or close to discard.
+If you enable content moderation (by setting `moderation: true` in the site config), Staticman will send a pull request whenever a new entry is submitted. Merge the pull request to approve it, or close to discard.
 
 ![Step 2](/assets/images/get-started/step2.png)
 
 Please note that this step will be skipped if you disable moderation, as entries will be pushed to the main branch immediately.
+
+Congratulations! You should now have working Staticman setup. Once you've verified this is working, you can start to experiment with more advanced configurations.
