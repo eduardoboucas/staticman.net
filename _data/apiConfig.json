@@ -94,7 +94,7 @@
     "doc": "Base URL for the GitLab API.",
     "default": "https://gitlab.com",
     "env": "GITLAB_BASE_URL",
-    "_key": "gitlabAccessTokenUri"
+    "_key": "gitlabBaseUrl"
   },
   {
     "doc": "Access token to the GitLab account used to push submitted content.",
