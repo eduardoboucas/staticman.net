@@ -23,7 +23,21 @@ Another effective method of combating spam is to use reCAPTCHA. If you enable Ak
   <input type="hidden" name="options[reCaptcha][siteKey]" value="{SITE-KEY}">
   <input type="hidden" name="options[reCaptcha][secret]" value="{ENCRYPTED-SECRET}">
   ```
-1. Follow the reCAPTCHA documentation to add either a <a href="https://developers.google.com/recaptcha/docs/display#auto_render" class="cta">checkbox</a> or <a href="https://developers.google.com/recaptcha/docs/invisible#auto_render" class="cta">invisible challenge</a> to your form
+1. Add the reCAPTCHA credentials to your staticman.yml
+  ``` yml
+    reCaptcha:
+      enabled: true
+      # siteKey and secret should match your config.toml
+      siteKey: ""
+      # (!) ENCRYPT reCaptcha secret key using Staticman /encrypt endpoint
+      # i.e. https://{your-staticman-api}/v3/encrypt/{your-site-secret}
+      # For more information, visit https://staticman.net/docs/encryption
+      secret: ""
+  ```
+
+1. Follow the reCAPTCHA documentation to add either a <a href="https://developers.google.com/recaptcha/docs/display#auto_render" class="cta">checkbox</a> or <a href="https://developers.google.com/recaptcha/docs/invisible#auto_render" class="cta">invisible challenge</a> to your form.
+<br>
+<br>
 
 ## Akismet
 
@@ -31,7 +45,15 @@ Another option for dealing with spam is to use the Akismet API. Akismet is a spa
 
 1. Sign up for an <a href="https://akismet.com/" class="cta">Akismet account</a>. Note your Akismet API key and give Akismet your static site's URL
 1. Add the Akismet API key and URL to the <a href="/docs/api" class="cta">API config</a>
-
-<br>
+1. Add the Akismet config to your staticman.yml file, making sure that the values below match your form's fields
+  ``` yml
+  # Akismet spam detection
+    akismet:
+      enabled: true
+      author: "name"
+      authorEmail: "email"
+      authorUrl: "website"
+      content: "message"
+  ```
 
 Note: Staticman currently uses one Akismet account for all its calls as compared to reCAPTCHA which can be configured per site. If many sites use a single Staticman instance this can be problematic.
