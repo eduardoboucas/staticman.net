@@ -19,7 +19,7 @@ In order to use Staticman, the repository for your static site must be hosted on
 [Create a personal access token](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#creating-a-personal-access-token) with the following scopes
 
 - `read_repository`: Necessary to read the Staticman site config
-- `write_repository`: Necessary to merge pull requests
+- `api`: Necessary to merge pull requests
 
 ### **If using GitHub to host the static site repo:**
 
