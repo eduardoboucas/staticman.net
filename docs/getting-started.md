@@ -35,14 +35,23 @@ This is the recommended way to authenticate with GitHub. This method will give t
   - Subscribe to `Pull request` events
 1. Generate a private key for the app and note it down along with your app ID.
 1. Install the app on your GitHub account. You can limit its access to only the repo from which you host your static site
+1. Set Authentication environment variables
+```
+GITHUB_APP_ID=123
+GITHUB_PRIVATE_KEY=$(cat github-app.private-key.pem)
+```
 
 <br>
 
 #### **Option 2. Authenticate to GitHub using a personal access token on a bot**
 
 1. Register a new GitHub account to run your Staticman bot and create a <a href="https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token" class="cta">personal access token</a> for this new account.
-1. From your main GitHub account, <a href="https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository" class="cta">send your bot a collaboration invite</a>.
-1. Return to this step once your Staticman instance is running and send a GET request to
+1. Set Authentication environment variable
+```
+GITHUB_TOKEN="{personal-access-token}"
+```
+3. From your main GitHub account, <a href="https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository" class="cta">send your bot a collaboration invite</a>.
+4. Return to this step once your Staticman instance is running and send a GET request to
   `{STATICMAN_BASE_URL}/v3/connect/{GIT_PROVIDER_USERNAME}/{REPO}`
   <br>For example:<br>
   `https://staticmaninstance.herokuapp.com/v3/connect/eduardoboucas/staticman.net`
@@ -54,7 +63,19 @@ This is the recommended way to authenticate with GitHub. This method will give t
 
 This option is not recommended as it gives Staticman direct and complete access to your primary GitHub account. Simply, create a personal access token on your primary account.
 
-## Step 2. Deploy Staticman
+## Step 2. Set Private Key
+
+Staticman requires a private key to encrypt any of your secret strings. Create it and set an environment variable for your app instance.
+
+```sh
+ssh-keygen -m PEM -t rsa -b 4096 -C "staticman key" -f ~/.ssh/staticman_key
+```
+
+```
+RSA_PRIVATE_KEY=$(cat ~/.ssh/staticman_key)"
+```
+
+## Step 3. Deploy Staticman
 
 Read through the [Staticman API config values](https://staticman.net/docs/api) and note the config values you wish to use. At a minimum, you must include a way for Staticman to auth with a git provider, as well as an RSA private key. To generate the RSA private key you can use 
 
@@ -93,13 +114,13 @@ If you prefer to use Docker, check out the [Docker instructions](https://github.
 
 <br>
 
-## Step 3. Create a site configuration file
+## Step 4. Create a site configuration file
 
 Staticman will look for a `staticman.yml` file in the root of the repository, where various configuration parameters will be defined. These configuration values are specific to the site. This means one Staticman instance can be used with many websites and users.
 
 You can use the [sample site config file](https://github.com/eduardoboucas/staticman/blob/master/staticman.sample.yml) as a starting point and check the [available site configuration parameters](/docs/configuration) for more information.
 
-## Step 4. Hook up your forms
+## Step 5. Hook up your forms
 
 Forms on your static site should `POST` to:
 
@@ -128,7 +149,7 @@ The following markup shows how the form for a simple commenting system would loo
 </form>
 {% endraw %}{% endhighlight %}
 
-## Step 5. Approve entries (optional)
+## Step 6. Approve entries (optional)
 
 If you enable content moderation (by setting `moderation: true` in the site config), Staticman will send a pull request whenever a new entry is submitted. Merge the pull request to approve it, or close to discard.
 
