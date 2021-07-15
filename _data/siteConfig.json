@@ -124,6 +124,21 @@
     "_key": "gitlabAuth.redirectUri"
   },
   {
+    "doc": "Base URL for the OneDev API.",
+    "default": "https://code.onedev.io/api",
+    "key": "onedevBaseUrl"
+  },
+  {
+    "doc": "Username for the OneDev API.",
+    "default": "",
+    "key": "onedevUsername"
+  },
+  {
+    "doc": "Password or Access Token for the OneDev API.",
+    "default": "",
+    "key": "onedevPassword"
+  },
+  {
     "doc": "When set to `true`, a pull request with the data files will be created to allow site administrators to approve or reject an entry. Otherwise, entries will be pushed to `branch` immediately.",
     "default": true,
     "_key": "moderation"

@@ -11,6 +11,7 @@ Staticman currently supports the following git providers:
 
 - GitHub
 - GitLab
+- OneDev
 
 In order to use Staticman, the repository for your static site must be hosted on one of these providers. The Staticman service needs to authenticate with the git provider to commit files and handle pull requests. This step will walk you through obtaining the necessary credentials.
 
@@ -53,6 +54,14 @@ This is the recommended way to authenticate with GitHub. This method will give t
 #### **Option 3. Authenticate to GitHub using a personal access token on your main account**
 
 This option is not recommended as it gives Staticman direct and complete access to your primary GitHub account. Simply, create a personal access token on your primary account.
+
+### **If using OneDev to host the static site repo:**
+
+Get your access token from the user setting: `https://code.onedev.io/my/access-token`
+You need to configure the following config items for OneDev:
+- `onedevBaseUrl`
+- `onedevUsername`
+- `onedevPassword`
 
 ## Step 2. Deploy Staticman
 
