@@ -59,9 +59,11 @@ This option is not recommended as it gives Staticman direct and complete access 
 
 Get your access token from the user setting: `https://code.onedev.io/my/access-token`
 You need to configure the following config items for OneDev:
-- `onedevBaseUrl`
-- `onedevUsername`
-- `onedevPassword`
+- `onedevBaseUrl`: API-Url, for example `https://code.onedev.io/api`
+- `onedevUsername`: your username
+- `onedevPassword`: your password or access token
+
+Alternatively you can use the environment variables `ONEDEV_BASE_URL`, `ONEDEV_USERNAME` and `ONEDEV_PASSWORD`.
 
 ## Step 2. Deploy Staticman
 
