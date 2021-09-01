@@ -103,6 +103,24 @@
     "_key": "gitlabToken"
   },
   {
+    "doc": "Base URL for the OneDev API.",
+    "default": "https://code.onedev.io/api",
+    "env": "ONEDEV_BASE_URL",
+    "_key": "onedevBaseUrl"
+  },
+  {
+    "doc": "Username for the OneDev API.",
+    "default": "",
+    "env": "ONEDEV_USERNAME",
+    "_key": "onedevUsername"
+  },
+  {
+    "doc": "Password or Token for the OneDev API.",
+    "default": "",
+    "env": "ONEDEV_PASSWORD",
+    "_key": "onedevPassword"
+  },
+  {
     "doc": "The port to bind the application to.",
     "default": 0,
     "env": "PORT",
