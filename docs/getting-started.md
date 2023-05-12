@@ -73,6 +73,12 @@ Read through the [Staticman API config values](https://staticman.net/docs/api) a
 openssl genrsa
 {% endraw %}{% endhighlight %}
 
+Using OpenSSL v3, you'll need to use the `-traditional` flag
+
+{% highlight bash %}{% raw %}
+openssl genrsa -traditional
+{% endraw %}{% endhighlight %}
+
 If you need the newline literals (for example when using JSON configs since multiline strings are not permitted) you can use
 
 {% highlight bash %}{% raw %}
